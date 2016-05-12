@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-hexo-firstEX" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/08/hexo-firstEX/">Hexo 初體驗</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/05/08/hexo-firstEX/" class="article-date">
+  <time datetime="2016-05-08T06:59:36.000Z" itemprop="datePublished">2016-05-08</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安裝hexo"><a href="#安裝hexo" class="headerlink" title="安裝hexo"></a>安裝hexo</h2><p><img src="/GaomeiWetlands.jpg" alt="Taichung County Gaomei Wetlands"></p>
+<p>花了大半天，終於建立自己的hexo。謝謝<a href="code.kpman.cc">建勳</a>的建議，希望之後能將自己學習的點滴記錄在這裡。</p>
+<p>這次在安裝node、nvm還有hexo的時候花了最多時間，因為自己的問題重做了好多次，紀錄一下後來的解法：先將所有node_modules和node的folder刪除（<a href="http://benznext.com/completely-uninstall-node-js-from-mac-os-x/" target="_blank" rel="external">這裡</a>），再用brew安裝node：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node</span><br></pre></td></tr></table></figure>
+<p>這時有遇到的問題是Homebrew跳出”Target /usr/local/share/systemtap/tapset/node.stp already exists.”的訊息，告知要刪除此檔案。但當要刪除時會出現not wirtable的錯誤訊息。解決方法是<a href="http://stackoverflow.com/questions/31374143/trouble-install-node-js-with-homebrew" target="_blank" rel="external">這裡</a>，輸入以下指令給予權限就ok了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown -R $(whoami) /usr/local/share/systemtap</span><br></pre></td></tr></table></figure>
+<p>另外一個大問題是跳出超長一串npm ERR，5月8日第一次安裝成功是把node與npm全部清掉後重裝brew後成功，然而5月11日重複此步驟卻失敗，目前正尋找解決方案中。5/12確認，裝完nvm之後就解決這問題，我依照網路上教學安裝nvm：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install nvm</span><br></pre></td></tr></table></figure>
+<p>依照brew給的指示，nvm要先有個資料夾（如果沒有的話）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/.nvm</span><br></pre></td></tr></table></figure>
+<p>將以下兩行加入~/.bash_profile中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">$ . &quot;$(brew --prefix nvm)/nvm.sh&quot;</span><br></pre></td></tr></table></figure>
+<p>然後nvm就可以使用了。接下來根據<a href="https://github.com/hexojs/hexo/issues/206" target="_blank" rel="external">這裡</a>，檢查目前nvm版本後安裝nvm最新版本，然後設為default就ok了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line">$ nvm ls-remote // 檢查目前available版本</span><br><span class="line">$ nvm install v6.1.0</span><br><span class="line">$ nvm use v6.1.0</span><br><span class="line">$ nvm alias default 6.1.0</span><br></pre></td></tr></table></figure>
+<p>BTW<a href="http://icarus4.logdown.com/posts/175092-nodejs-installation-guide" target="_blank" rel="external">這裡</a>關於nvm有詳細的介紹可以看。然後就可以安裝hexo了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>在網路上看到有些人建議不要使用-g，這點可以注意一下。為了方便自己記得在哪裡操作，我在桌面建立了空的資料夾，在裡面進行初始化。同時這也解決了一直遇到的hexo command not found問題。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+<p>之後的操作我都是看<a href="http://www.cnblogs.com/liulangmao/p/4323064.html" target="_blank" rel="external">這篇</a>，非常詳細，照做之後大致就完成了。</p>
+<p>p.s. 圖片是2015年暑假環島時在高美濕地所攝。</p>
+<p>p.s.2 在玩Node.js時找到npm安裝問題的解法，以下quote自<a href="https://github.com/tj/n/issues/101" target="_blank" rel="external">@mikemoser</a>：<br>Note: If you get “301 Moved Permanently” then try curl -0 -L <a href="http://npmjs.org/install.sh" target="_blank" rel="external">http://npmjs.org/install.sh</a> | sudo sh to follow redirects. Also notice I added sudo before the sudo sh command depending on your users permissions.</p>
+<p>p.s.3 (快要追上Play Station的進度了XD)後來發現還是GG，跳出一些”Error: Cannot find module ‘npmlog’”之類的錯誤訊息，於是找到<a href="https://gist.github.com/DanHerbert/9520689" target="_blank" rel="external">這裡</a>，重新安裝了node和npm，解決npm自身的bug。Hope it works well now.</p>
+<p>p.s.4 5/12終於完成XDD 原來解決方式是安裝nvm啊。</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Sean Chen&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
