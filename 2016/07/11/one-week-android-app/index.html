@@ -5,19 +5,28 @@
   
   <title>一週寫出第一個Android App - Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###前言
-暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。">
+  <meta name="description" content="前言暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。我們將目標設定在解決暑假太熱的問題，但經過訪談後發現大部分人覺得流汗造成的濕黏不適感才是主要的困擾。
+我們的Insights分為外在與內在部分：
+
+流汗的肌膚與其他物體接觸會帶來不適感 // 例如手被汗黏在桌子上
+在走動時會產生風，也比較不會注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一週寫出第一個Android App">
 <meta property="og:url" content="http://yoursite.com/2016/07/11/one-week-android-app/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="###前言
-暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。">
-<meta property="og:updated_time" content="2016-07-11T10:11:34.000Z">
+<meta property="og:description" content="前言暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。我們將目標設定在解決暑假太熱的問題，但經過訪談後發現大部分人覺得流汗造成的濕黏不適感才是主要的困擾。
+我們的Insights分為外在與內在部分：
+
+流汗的肌膚與其他物體接觸會帶來不適感 // 例如手被汗黏在桌子上
+在走動時會產生風，也比較不會注">
+<meta property="og:updated_time" content="2016-07-11T10:40:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一週寫出第一個Android App">
-<meta name="twitter:description" content="###前言
-暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。">
+<meta name="twitter:description" content="前言暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。我們將目標設定在解決暑假太熱的問題，但經過訪談後發現大部分人覺得流汗造成的濕黏不適感才是主要的困擾。
+我們的Insights分為外在與內在部分：
+
+流汗的肌膚與其他物體接觸會帶來不適感 // 例如手被汗黏在桌子上
+在走動時會產生風，也比較不會注">
   
   
     <link rel="icon" href="/favicon.png">
@@ -80,8 +89,23 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###前言</p>
-<p>暑假接下Dean’s Challenge，目前在T&amp;O(Training &amp; Orientation)階段發想暑假時大學生會碰到的問題。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>暑假接下Dean’s Challenge，目前在T&amp;O(Training &amp; Orientation)階段發想暑假時大學生會碰到的問題。我們將目標設定在解決暑假太熱的問題，但經過訪談後發現大部分人覺得流汗造成的濕黏不適感才是主要的困擾。</p>
+<p>我們的Insights分為外在與內在部分：</p>
+<ul>
+<li>流汗的肌膚與其他物體接觸會帶來不適感 // 例如手被汗黏在桌子上</li>
+<li>在走動時會產生風，也比較不會注意身上的汗，不適感較少；停在路上（例如等紅燈）、熱消耗時卻會注意到身體的濕黏不適<br>在經過討論後，我們決定從心理、轉移注意出發，設計出能夠轉移「停在戶外時產生濕黏」注意的Solution，並將使用者設為台大的學生。</li>
+</ul>
+<h3 id="產品"><a href="#產品" class="headerlink" title="產品"></a>產品</h3><p>我們構想出在紅綠燈柱貼上QR Code以及吸引人去掃的Icon與指示，使用者在等紅燈時透過我們的App掃QR Code，就可以蒐集到台大各系的學生角色，與在台大發生的不同事件。藉由這些事件可以培育你的角色，從大一開始，最後到大四並成功畢業。</p>
+<p>事件分為四大類：</p>
+<ul>
+<li>升級：畢業的必要過程，例如大一結業升到大二</li>
+<li>年級特有：不同年級時發生的事件，例如大三專題</li>
+<li>學系特有：不分年級、各系特有的事件，例如舞會</li>
+<li>不分系：台大共有的事件，例如音樂節</li>
+</ul>
+<p>因此，撰寫App（而且只有一週QQ）就是技術部的工作了。</p>
+<h3 id="Day-1-將環境裝好"><a href="#Day-1-將環境裝好" class="headerlink" title="Day 1 將環境裝好"></a>Day 1 將環境裝好</h3><p>因為之前就裝過Java的JDK，因此安裝Android的SDK比較容易。但我因為不喜歡Eclipse的介面，於是決定用Android Studio進行開發。</p>
+<h3 id="Day-2-QR-Code-掃瞄器"><a href="#Day-2-QR-Code-掃瞄器" class="headerlink" title="Day 2 QR Code 掃瞄器"></a>Day 2 QR Code 掃瞄器</h3><p>選用Zxing，因為我們只有要使用QR Code而無其他條碼，而且掃描的速度對我們暫時不那麼重要，因此不選用ZBar。之後照著<a href="https://github.com/zxing/zxing" target="_blank" rel="external">Github</a>的說明，就完成QR Code掃瞄器的設定。</p>
 
       
     </div>
