@@ -19,7 +19,7 @@
 
 流汗的肌膚與其他物體接觸會帶來不適感 // 例如手被汗黏在桌子上
 在走動時會產生風，也比較不會注">
-<meta property="og:updated_time" content="2016-07-18T11:03:55.000Z">
+<meta property="og:updated_time" content="2016-07-18T11:04:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一週寫出第一個Android App">
 <meta name="twitter:description" content="前言暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。我們將目標設定在解決暑假太熱的問題，但經過訪談後發現大部分人覺得流汗造成的濕黏不適感才是主要的困擾。
@@ -111,9 +111,7 @@
 <p>在撰寫時，例如從here轉頁到there後，若there已結束要返回here，本來是開一個新的intent去轉頁，但後來發現使用finish()方法更有效率。</p>
 <h3 id="Day-5-Dialog"><a href="#Day-5-Dialog" class="headerlink" title="Day 5 Dialog"></a>Day 5 Dialog</h3><p>本來在遇到角色與事件時都使用AlertDialog製作跳出視窗，但因為我們的跳出視窗中包含整個角色或事件的圖片，首先使用了setContentView()將圖片與其上的按鈕另開一個Activity，並將該Activity包入AlertDialog，後來因為無法取得content中設定按鈕的onclick method，因此demo時改用轉頁處理了對話（dialog）的問題。</p>
 <h3 id="Day-6-輸出apk"><a href="#Day-6-輸出apk" class="headerlink" title="Day 6 輸出apk"></a>Day 6 輸出apk</h3><p>輸出apk時遇到了一些大問題，例如Android Studio說我們的app有太多的methods（但其實很少）、too much work on main thread等，Android允許64K的使用量，我們的app卻用到超過因此無法。上網查可使用Multidex（只是我裝好依然失敗），一個簡單的app就這麼完成了。</p>
-<p>####</p>
-<p>ps. 好想換電腦，不知道平常寫android app的工程師大大都怎麼克服它佔據RAM與CPU的問題呢？</p>
-
+<h4 id="ps-好想換電腦，不知道平常寫android-app的工程師大大都怎麼克服它佔據RAM與CPU的問題呢？"><a href="#ps-好想換電腦，不知道平常寫android-app的工程師大大都怎麼克服它佔據RAM與CPU的問題呢？" class="headerlink" title="ps. 好想換電腦，不知道平常寫android app的工程師大大都怎麼克服它佔據RAM與CPU的問題呢？"></a>ps. 好想換電腦，不知道平常寫android app的工程師大大都怎麼克服它佔據RAM與CPU的問題呢？</h4>
       
     </div>
     
