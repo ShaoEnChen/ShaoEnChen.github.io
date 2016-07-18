@@ -19,7 +19,7 @@
 
 流汗的肌膚與其他物體接觸會帶來不適感 // 例如手被汗黏在桌子上
 在走動時會產生風，也比較不會注">
-<meta property="og:updated_time" content="2016-07-11T10:40:59.000Z">
+<meta property="og:updated_time" content="2016-07-18T11:03:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一週寫出第一個Android App">
 <meta name="twitter:description" content="前言暑假接下Dean’s Challenge，目前在T&amp;amp;O(Training &amp;amp; Orientation)階段發想暑假時大學生會碰到的問題。我們將目標設定在解決暑假太熱的問題，但經過訪談後發現大部分人覺得流汗造成的濕黏不適感才是主要的困擾。
@@ -104,8 +104,15 @@
 <li>不分系：台大共有的事件，例如音樂節</li>
 </ul>
 <p>因此，撰寫App（而且只有一週QQ）就是技術部的工作了。</p>
-<h3 id="Day-1-將環境裝好"><a href="#Day-1-將環境裝好" class="headerlink" title="Day 1 將環境裝好"></a>Day 1 將環境裝好</h3><p>因為之前就裝過Java的JDK，因此安裝Android的SDK比較容易。但我因為不喜歡Eclipse的介面，於是決定用Android Studio進行開發。</p>
-<h3 id="Day-2-QR-Code-掃瞄器"><a href="#Day-2-QR-Code-掃瞄器" class="headerlink" title="Day 2 QR Code 掃瞄器"></a>Day 2 QR Code 掃瞄器</h3><p>選用Zxing，因為我們只有要使用QR Code而無其他條碼，而且掃描的速度對我們暫時不那麼重要，因此不選用ZBar。之後照著<a href="https://github.com/zxing/zxing" target="_blank" rel="external">Github</a>的說明，就完成QR Code掃瞄器的設定。</p>
+<h3 id="Day-1-將環境裝好"><a href="#Day-1-將環境裝好" class="headerlink" title="Day 1 將環境裝好"></a>Day 1 將環境裝好</h3><p>因為之前就裝過Java的JDK，因此安裝Android的SDK比較容易。但因為不喜歡Eclipse的介面，於是決定用Android Studio進行開發。</p>
+<h3 id="Day-2-QR-Code-掃瞄器"><a href="#Day-2-QR-Code-掃瞄器" class="headerlink" title="Day 2 QR Code 掃瞄器"></a>Day 2 QR Code 掃瞄器</h3><p>選用Zxing，因為我們只有要使用QR Code而無其他條碼，而且掃描的速度對我們暫時不那麼重要，因此不選用ZBar。之後照著<a href="https://github.com/zxing/zxing" target="_blank" rel="external">Github</a>的說明，就完成QR Code掃瞄器的設定。這邊大致要加上的設定只有Android Manifest的xml檔要允許相機的權限（uses permission, CAMERA）以及在將來測試的AVD設定裡允許取用裝置的相機，例如我用mac測試，就允許他相機取用mac的webcam0。</p>
+<h3 id="Day-3-排版"><a href="#Day-3-排版" class="headerlink" title="Day 3 排版"></a>Day 3 排版</h3><p>就像網頁一樣，因為只是要做簡單的demo，因此我們在設定物件的位置時常用android:layoutMargin去設定margin值，並且將數字寫死，單位使用dp。在未來可能需要更好的寫法。此外置底的四個功能按鈕使用了android linear layout，設定orientation為horizontal，並把每個權重（gravity）設為0.25（每個加起來需等於1）。</p>
+<h3 id="Day-4-轉頁"><a href="#Day-4-轉頁" class="headerlink" title="Day 4 轉頁"></a>Day 4 轉頁</h3><p>轉頁功能由於我們設定許多的Activities，因此可用以下程式碼完成轉頁功能：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 開一個新的物件</span><br><span class="line">Intent intent = new Intent();</span><br><span class="line">// 從所在地here到目的地there（Activity）</span><br><span class="line">intent.setClass(Here.this, There.class);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure></p>
+<p>在撰寫時，例如從here轉頁到there後，若there已結束要返回here，本來是開一個新的intent去轉頁，但後來發現使用finish()方法更有效率。</p>
+<h3 id="Day-5-Dialog"><a href="#Day-5-Dialog" class="headerlink" title="Day 5 Dialog"></a>Day 5 Dialog</h3><p>本來在遇到角色與事件時都使用AlertDialog製作跳出視窗，但因為我們的跳出視窗中包含整個角色或事件的圖片，首先使用了setContentView()將圖片與其上的按鈕另開一個Activity，並將該Activity包入AlertDialog，後來因為無法取得content中設定按鈕的onclick method，因此demo時改用轉頁處理了對話（dialog）的問題。</p>
+<h3 id="Day-6-輸出apk"><a href="#Day-6-輸出apk" class="headerlink" title="Day 6 輸出apk"></a>Day 6 輸出apk</h3><p>輸出apk時遇到了一些大問題，例如Android Studio說我們的app有太多的methods（但其實很少）、too much work on main thread等，Android允許64K的使用量，我們的app卻用到超過因此無法。上網查可使用Multidex（只是我裝好依然失敗），一個簡單的app就這麼完成了。</p>
+<p>####</p>
+<p>ps. 好想換電腦，不知道平常寫android app的工程師大大都怎麼克服它佔據RAM與CPU的問題呢？</p>
 
       
     </div>
