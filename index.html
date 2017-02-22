@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Sean&#39;s Hexo Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="用來記錄學到的，經歷的，與失去的">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Sean's Hexo Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:site_name" content="Sean's Hexo Blog">
+<meta property="og:description" content="用來記錄學到的，經歷的，與失去的">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Sean's Hexo Blog">
+<meta name="twitter:description" content="用來記錄學到的，經歷的，與失去的">
   
   
     <link rel="icon" href="/favicon.png">
@@ -54,6 +54,96 @@
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-auth_desc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/auth_desc/">關於權限設定</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/02/22/auth_desc/" class="article-date">
+  <time datetime="2017-02-22T05:15:00.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="看到一篇不錯的權限說明"><a href="#看到一篇不錯的權限說明" class="headerlink" title="看到一篇不錯的權限說明"></a>看到一篇不錯的權限說明</h3><p>“2775” is an octal number that defines the file permissions. The leftmost digit (the “2”) is optional and defaults to zero if not specified.</p>
+<p>The digits in the “775” portion define the permissions for the file owner, file group, and everyone, from left to right respectively. Valid numbers are 0-7, with 4 indicating read access, 2 indicating write access, and 1 indicating execute access (for directories execute permission also allows you to traverse the directory tree). If a file has multiple permissions, you add the values together. Thus a “7” means 4+2+1 which is read, write, and execute permission, while a “5” means 4+1 which is read and execute permission.</p>
+<p>More information about these permissions can be found here.</p>
+<p>The first digit of a 4-character permission (in this case, the “2”) specifies the setuid mode (=4), the setgid mode (=2), and the sticky mode (=1). These values are added together in a manner identical to the read/write/executable permissions above. More information is here.</p>
+<p>It should be noted that the setgid mode and the sticky mode have special meanings for directories.</p>
+<p>Thus a permission of “2755” for a directory means that everyone has read and execute permission, while the file owner and members of the file’s group additionally have write permission. And any files or subdirectories created in that directory will inherit the parent directory’s group id.</p>
+<p>Ref: <a href="http://forums.oscommerce.com/topic/352153-is-chmod-2775-secure/" target="_blank" rel="external">這裡</a></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chmod/">chmod</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+    
+      <article id="post-php_record" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/php_record/">常用php方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/02/22/php_record/" class="article-date">
+  <time datetime="2017-02-22T05:09:00.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PHP的使用狀況"><a href="#PHP的使用狀況" class="headerlink" title="PHP的使用狀況"></a>PHP的使用狀況</h2><p>雖然非本願，在接觸到的案子當中後端的使用常常使用php，也許是php + apache + MySQL的組合太常見造成的吧…<br>之後希望遇到php相關的問題時，可以把問題與解法整理在這篇文裡。</p>
+<h3 id="PHP-Info"><a href="#PHP-Info" class="headerlink" title="PHP Info"></a>PHP Info</h3><p>藉由這段程式碼，可以在網頁上檢視php目前的健康狀況（？）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /var/www/html/phpinfo.php</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+    
       <article id="post-one-week-android-app" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
